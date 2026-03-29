@@ -19,11 +19,13 @@ def download_video():
     try:
         url = request.form.get('url')
 
-        ydl_opts = {
-            'format': 'bv*[height<=720]+ba/b',
-            'outtmpl': os.path.join(DOWNLOAD_FOLDER, '%(id)s.%(ext)s'),
-            'merge_output_format': 'mp4'
-        }
+       ydl_opts = {
+    "outtmpl": f"{DOWNLOAD_FOLDER}/{unique_id}.%(ext)s",
+    "format": "bestvideo+bestaudio/best",
+    "quiet": True,
+    "noplaylist": True,
+    "merge_output_format": "mp4"
+}
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
