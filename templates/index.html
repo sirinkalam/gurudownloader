@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guru Downloader</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Guru Downloader</h1>
+
+    <form action="/download" method="post">
+        <input type="text" name="url" placeholder="Enter YouTube URL" required>
+        <button type="submit">Download</button>
+    </form>
+
+        <div class="about">
+            <p>Download YouTube videos easily and fast.</p>
+        </div>
+    </div>
+
+</body>
+</html>
