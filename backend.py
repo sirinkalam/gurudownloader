@@ -1,6 +1,7 @@
 from flask import Flask, request, send_file, jsonify, render_template
 import yt_dlp
 import os
+import uuid
 
 app = Flask(__name__)
 
@@ -18,6 +19,7 @@ def home():
 def download_video():
     try:
         url = request.form.get('url')
+        unique_id = str(uuid.uuid4())
 
         ydl_opts = {
             "outtmpl": f"{DOWNLOAD_FOLDER}/{unique_id}.%(ext)s",
